@@ -4,7 +4,7 @@ import { MoviesList } from 'components/MoviesList/MoviesList';
 import { LoaderSpinner } from 'components/Loader';
 import { getMoviesByKeywords } from 'moviesApi';
 
-const Movies = () => {
+const MoviesPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -29,4 +29,4 @@ const Movies = () => {
   );
 };
 
-export { Movies };
+export default MoviesPage;

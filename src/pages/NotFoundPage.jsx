@@ -1,6 +1,6 @@
 import errorImage from '../default-images/error.jpg';
 
-const NotFoundView = () => {
+const NotFoundPage = () => {
   return (
     <div role="alert">
       <img src={errorImage} alt="Error 404" />
@@ -8,4 +8,4 @@ const NotFoundView = () => {
   );
 };
 
-export { NotFoundView };
+export default NotFoundPage;
