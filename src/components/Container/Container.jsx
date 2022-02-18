@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import s from './Container.module.css';
+import { ContainerWrap } from './Container.styled';
 
 const Container = ({ title, children }) => {
   return (
-    <div className={s.container}>
-      {title && <h1 className={s.title}>{title}</h1>}
+    <ContainerWrap>
+      {title && <h1>{title}</h1>}
       {children}
-    </div>
+    </ContainerWrap>
   );
 };
 

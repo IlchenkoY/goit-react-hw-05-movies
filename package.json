@@ -40,7 +40,6 @@
   "bugs": {
     "url": "https://github.com/IlchenkoY/goit-react-hw-05-movies/issues"
   },
-  "homepage": "https://IlchenkoY/goit-react-hw-05-movies",
   "eslintConfig": {
     "extends": [
       "react-app",
