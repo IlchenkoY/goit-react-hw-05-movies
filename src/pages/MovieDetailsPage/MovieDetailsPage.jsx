@@ -1,5 +1,6 @@
-import { useParams, Outlet } from 'react-router-dom';
+import { useParams, Outlet, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { IoMdArrowRoundBack } from 'react-icons/io';
 import { getMovieDetailsById } from 'moviesApi';
 import {
   MovieCard,
@@ -11,6 +12,7 @@ import {
 import defPoster from '../../default-images/default-img.png';
 
 const MovieDetailsPage = () => {
+  const navigate = useNavigate();
   const { moviesId } = useParams();
   const [movie, setmovie] = useState(null);
 
@@ -20,8 +22,15 @@ const MovieDetailsPage = () => {
       .catch(e => console.log(e.message));
   }, [moviesId]);
 
+  const onGoBack = () => navigate(-1);
+
   return (
     <>
+      <IoMdArrowRoundBack
+        type="button"
+        style={{ width: 35, height: 35, color: 'rgb(44, 44, 44)' }}
+        onClick={onGoBack}
+      ></IoMdArrowRoundBack>
       {movie && (
         <MovieCard>
           <img

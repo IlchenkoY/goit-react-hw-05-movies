@@ -1,4 +1,5 @@
 import { List, ListItemImg } from './MoviesList.styled';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import defPoster from '../../default-images/default-img.png';
 
@@ -24,6 +25,16 @@ const MoviesList = ({ movies }) => {
       </List>
     </>
   );
+};
+
+MoviesList.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      poster_path: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 export { MoviesList };

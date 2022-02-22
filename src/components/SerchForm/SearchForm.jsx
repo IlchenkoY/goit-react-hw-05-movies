@@ -15,7 +15,7 @@ const SearchForm = ({ onSubmit }) => {
     e.preventDefault();
 
     if (searchQuery.trim() === '') {
-      return toast.warn('🦄 Enter valid query!');
+      return toast.warn('😨 Enter valid query!');
     }
 
     onSubmit(searchQuery);
