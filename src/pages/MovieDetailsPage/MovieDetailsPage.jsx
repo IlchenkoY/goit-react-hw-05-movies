@@ -1,4 +1,4 @@
-import { useParams, Outlet, useNavigate } from 'react-router-dom';
+import { useParams, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { getMovieDetailsById } from 'moviesApi';
@@ -12,6 +12,7 @@ import {
 import defPoster from '../../default-images/default-img.png';
 
 const MovieDetailsPage = () => {
+  const location = useLocation();
   const navigate = useNavigate();
   const { moviesId } = useParams();
   const [movie, setmovie] = useState(null);
@@ -22,7 +23,9 @@ const MovieDetailsPage = () => {
       .catch(e => console.log(e.message));
   }, [moviesId]);
 
-  const onGoBack = () => navigate(-1);
+  const onGoBack = () => {
+    location?.state?.from ? navigate(-1) : navigate('/');
+  };
 
   return (
     <>
@@ -64,10 +67,14 @@ const MovieDetailsPage = () => {
 
       <MovieCardLinkList>
         <MovieCardLinkItem>
-          <MovieCardLink to="cast">Cast</MovieCardLink>
+          <MovieCardLink to="cast" state={{ from: location }}>
+            Cast
+          </MovieCardLink>
         </MovieCardLinkItem>
         <MovieCardLinkItem>
-          <MovieCardLink to="reviews">Reviews</MovieCardLink>
+          <MovieCardLink to="reviews" state={{ from: location }}>
+            Reviews
+          </MovieCardLink>
         </MovieCardLinkItem>
       </MovieCardLinkList>
       <Outlet />

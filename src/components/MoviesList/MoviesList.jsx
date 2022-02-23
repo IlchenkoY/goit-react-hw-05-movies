@@ -1,15 +1,16 @@
 import { List, ListItemImg } from './MoviesList.styled';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import defPoster from '../../default-images/default-img.png';
 
 const MoviesList = ({ movies }) => {
+  const location = useLocation();
   return (
     <>
       <List>
         {movies.map(({ id, title, poster_path }) => (
           <li key={id}>
-            <Link to={`/movies/${id}`}>
+            <Link to={`/movies/${id}`} state={{ from: location }}>
               <ListItemImg
                 src={
                   poster_path
